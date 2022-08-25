@@ -24,6 +24,10 @@ RUN case "$TARGETARCH" in \
         RUST_TARGET="x86_64-unknown-linux-musl" \
         MUSL="x86_64-linux-musl" \
     ;; \
+    "arm64") \
+        RUST_TARGET="aarch64-unknown-linux-musl" \
+        MUSL="aarch64-linux-musl" \
+    ;; \
     *) \
         echo "Doesn't support $TARGETARCH architecture" \
         exit 1 \
