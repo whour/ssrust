@@ -1,6 +1,6 @@
 services:
   ssrust:
-    image: whour/ssrust:main
+    image: ghcr.io/whour/ssrust:main:main
     restart: always
     ports:
       - 8388:8388/tcp
