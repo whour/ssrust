@@ -4,10 +4,7 @@ ENV SERVER_ADDR=0.0.0.0
 ENV SERVER_PORT=8388
 ENV PASSWORD=
 ENV METHOD=aes-256-gcm
-ENV TIMEOUT=300
-ENV DNS_ADDRS="8.8.8.8,8.8.4.4"
-ENV TZ=UTC
-ENV ARGS=
+
 
 ARG TARGETARCH
 
@@ -45,8 +42,7 @@ RUN case "$TARGETARCH" in \
 FROM alpine:3.16 AS ssserver
 
 COPY --from=builder /root/shadowsocks-rust/target/release/ssserver /usr/local/bin/
-COPY --from=builder /root/shadowsocks-rust/docker-entrypoint.sh /usr/local/bin/
 
-ENTRYPOINT [ "docker-entrypoint.sh" ]
 
-CMD [ "ssserver"]
+
+CMD [ "ssserver", "-s", "$SERVER_ADDR", "-p" ,"$SERVER_PORT" "-k", "$PASSWORD", "-m", "$METHOD" ,"-a", "nobody" ]
