@@ -45,4 +45,4 @@ COPY --from=builder /root/shadowsocks-rust/target/release/ssserver /usr/local/bi
 
 
 
-CMD [ "ssserver", "-s", "$SERVER_ADDR", "-p" ,"$SERVER_PORT" "-k", "$PASSWORD", "-m", "$METHOD" ,"-a", "nobody" ]
+CMD [ "sserver -s $SERVER_ADDR -p $SERVER_PORT -k $PASSWORD -m $METHOD -a nobody" ]
