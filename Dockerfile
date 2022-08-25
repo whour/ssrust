@@ -42,7 +42,11 @@ RUN case "$TARGETARCH" in \
 FROM alpine:3.16 AS ssserver
 
 COPY --from=builder /root/shadowsocks-rust/target/release/ssserver /usr/local/bin/
+COPY --from=builder /root/shadowsocks-rust/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+ENTRYPOINT ["docker-entrypoint.sh"]
 
+EXPOSE 8388
 
+STOPSIGNAL SIGINT
 
 CMD [ "sserver -s $SERVER_ADDR -p $SERVER_PORT -k $PASSWORD -m $METHOD -a nobody" ]
