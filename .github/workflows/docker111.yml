@@ -9,7 +9,6 @@ jobs:
       matrix:
         bin:
           - ssserver
-          - sslocal
     steps:
       - name: Checkout
         uses: actions/checkout@v2
