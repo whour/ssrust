@@ -15,6 +15,7 @@ WORKDIR /root/shadowsocks-rust
 
 ADD . .
 
+
 RUN case "$TARGETARCH" in \
     "386") \
         RUST_TARGET="i686-unknown-linux-musl" \
@@ -41,7 +42,6 @@ RUN case "$TARGETARCH" in \
     && rustup target add "$RUST_TARGET" \
     && RUSTFLAGS="-C linker=$CC" CC=$CC cargo build --target "$RUST_TARGET" --release --features "local-tun local-redir armv8 neon stream-cipher aead-cipher-2022" \
     && mv target/$RUST_TARGET/release/ss* target/release/
-
 
 FROM alpine:3.16 AS ssserver
 
