@@ -5,8 +5,7 @@ name: Docker
 # separate terms of service, privacy policy, and support
 # documentation.
 
-on:workflow_dispatch
-
+on: workflow_dispatch
   push:
     branches: [ "main" ]
     # Publish semver tags as releases.
