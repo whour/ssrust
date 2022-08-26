@@ -13,4 +13,4 @@ EXPOSE 8388
 
 STOPSIGNAL SIGINT
 
-CMD [ "sserver -s $SERVER_ADDR -p $SERVER_PORT -k $PASSWORD -m $METHOD -a nobody" ]
+CMD [ "sserver -s ${SERVER_ADDR} -p ${SERVER_PORT} -k ${PASSWORD} -m ${METHOD}" ]
