@@ -34,9 +34,9 @@ RUN case "$TARGETARCH" in \
         exit 1 \
     ;; \
     esac \
-    && wget -qO- "https://github.com/xmake-mirror/musl.cc/releases/download/20210202/$MUSL-cross.linux.tgz" | tar -xzC /root/ \
-    && PATH="/root/$MUSL-cross.linux/bin:$PATH" \
-    && CC=/root/$MUSL-cross.linux/bin/$MUSL-gcc \
+    && wget -qO- "https://github.com/xmake-mirror/musl.cc/releases/download/20210202/$MUSL-cross.linux.tgz" | tar -xzf -C /root/ \
+    && PATH="/root/$MUSL-cross/bin:$PATH" \
+    && CC=/root/$MUSL-cross/bin/$MUSL-gcc \
     && echo "CC=$CC" \
     && rustup override set nightly \
     && rustup target add "$RUST_TARGET" \
