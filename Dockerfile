@@ -1,6 +1,6 @@
 #FROM --platform=$BUILDPLATFORM rust:1.61.0-alpine AS builder
 FROM ghcr.io/shadowsocks/ssserver-rust:latest
-ENV SERVER_ADDR=0.0.0.0
+ENV SERVER_ADDR=::
 ENV SERVER_PORT=8388
 ENV PASSWORD=
 ENV METHOD=aes-256-gcm
